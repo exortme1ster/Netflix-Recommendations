@@ -1,0 +1,157 @@
+user@mimir: ~/cs_251_data_structures_spring_2021/project_1__recommendations > make build
+rm -f program.exe
+g++ -g -std=c++11 -Wall main.cpp -o program.exe
+user@mimir: ~/cs_251_data_structures_spring_2021/project_1__recommendations > make run
+./program.exe
+To start the app, load the data.
+Type "load itemsFile ratingsFile" and press enter.
+
+Enter command or # to quit: load podcastsTiny.txt ratingsTiny.txt
+
+Reading items file...
+S-Town
+Radiolab
+Serial
+Reply All
+This American Life
+The Daily
+Stuff You Should Know
+Armchair Expert
+Planet Money
+
+Reading ratings file...
+Jesse
+-3 5 -3 0 -1 -1 0 0 5 
+Shakea
+5 0 5 0 5 0 0 0 1 
+Batool
+5 -5 0 0 0 0 0 -3 -5 
+Muhammad
+0 0 0 -5 0 -3 0 0 0 
+Maria
+5 0 5 0 0 0 0 1 0 
+Alex
+5 0 0 5 0 5 5 1 0 
+Riley
+-5 3 -5 0 -1 0 0 0 3 
+
+Welcome to the Recommendations App!
+Enter command or # to quit: login Shakea
+
+-----------------------------
+
+Success.
+Logged in as: Shakea
+Enter command or # to quit: show
+
+-----------------------------
+
+Shakea's Ratings:
+S-Town, 5/5
+Serial, 5/5
+This American Life, 5/5
+Planet Money, 1/5
+
+Logged in as: Shakea
+Enter command or # to quit: basic
+
+-----------------------------
+
+Basic recommendations: 
+Stuff You Should Know
+Radiolab
+The Daily
+Reply All
+Armchair Expert
+
+Logged in as: Shakea
+*********************************************************
+ourvector<5films> stats:
+ # of vectors created:   1
+ # of elements inserted: 5
+ # of elements accessed: 76
+*********************************************************
+Enter command or # to quit: advanced
+
+-----------------------------
+
+
+Advanced recommendations: 
+Armchair Expert
+Radiolab
+Reply All
+The Daily
+Stuff You Should Know
+
+Logged in as: Shakea
+*********************************************************
+ourvector<5films> stats:
+ # of vectors created:   2
+ # of elements inserted: 10
+ # of elements accessed: 117
+*********************************************************
+Enter command or # to quit: print users
+
+-----------------------------
+
+Jesse
+Shakea
+Batool
+Muhammad
+Maria
+Alex
+Riley
+
+Logged in as: Shakea
+Enter command or # to quit: print items
+
+-----------------------------
+
+0. S-Town
+1. Radiolab
+2. Serial
+3. Reply All
+4. This American Life
+5. The Daily
+6. Stuff You Should Know
+7. Armchair Expert
+8. Planet Money
+
+Logged in as: Shakea
+Enter command or # to quit: add user
+
+-----------------------------
+
+Please enter the username: pRod1gy
+Logged in as: pRod1gy
+Enter command or # to quit: add rating
+
+-----------------------------
+
+Item number to add/change rating: 5
+Add the rating for The Daily: 5
+
+Logged in as: pRod1gy
+Enter command or # to quit: #
+
+-----------------------------
+
+
+Thank you for using the Recommendations app!
+*********************************************************
+ourvector<7netflix> stats:
+ # of vectors created:   1
+ # of elements inserted: 8
+ # of elements accessed: 329
+*********************************************************
+*********************************************************
+ourvector<NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE> stats:
+ # of vectors created:   3
+ # of elements inserted: 27
+ # of elements accessed: 51
+*********************************************************
+
+
+
+So, first vector was created on the line 315. For basic recomendation we have to suggest top 5 movies for user that he hasn't already watched and since  Shakea has 5 zero ratings, which means that he hasn't seen 5 movies it inserted 5 elements in the ourvector. To calculate how many elements of ourvector was accessed we just have to track in what loops was that ourvector used. In showBasic function ourvector<films> temp of a struct films is used in first loop to push_back elements, then in second loop to update average and calculate average, then elements was accessed during bubble sort and finally when we output elements of vector in the while loop we access them the last time. After that we see stats for using ourvector of struct films second time. This vector is initialized on the line 395 and it is called ourvector<films> advtop. After 10 lines I created one more vector ourvector<int> calculations that I used to store highest dot products. 5 elements were inserted in the second for loop of this function since we ignored one user by checking data[j].user != user_login. Then we insert 5 numbers into the advtop on line 456 because once again we have a condition the ratings should be zero and Shakea has 5 items that he hasn't watched yet. Accessing process is almost the same as in the showBasic function, we access them everytime we enter for loops where we insert items/output ourvector's elements. Last two analyzes make a statistic for ourvector<string> podcasts that is initialized one the line 700, ourvector<int> ratings that is initialized on the line 177 and served to fill in new user's ratings to zero and ourvector<netflix> data that is vector of struct Netflix that is initialized on the line 705 and that have string user and ourvector<int> rating that is initialized on the line 19. I also have ourvector<int> getRating() function that is initialized on the line 34 and used to return ourvector ratings that is initialized on the line 36. On line 550 I initialize one more vector that servs to store advice items that user already rated for 5 stars(part of my creative component)
+It is stated that 8 elements of ourvector<netflix> were inserted and all of that insertations are made on lines 110-123. And this ourvector was accessed 329 times in basically most of the functions throughout the code. For example in loginUser, addUser, addRating, showRating, showBasic,showAdvanced, printUsers, printItems, readFile it was accessed. Other vectors were also accessed and elements were inserted in them  in different function ( e.g.addUser, addRating, showRating, showBasic,showAdvanced etc.) and the make specific tasks where they are used .
